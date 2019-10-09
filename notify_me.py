@@ -20,13 +20,14 @@ def read_config(fname):
 
 
 def main():
-    config_file = "./notify_me.config"
+    script_path = os.path.abspath(__file__)
+    config_file = "notify_me.config"
     if len(sys.argv) < 2:
         print(f"[*] USAGE: {sys.argv[0]} <program> <arguments>")
         exit(0)
 
     # read config file
-    api_key, chat_id = read_config(config_file)
+    api_key, chat_id = read_config(script_path + "/" + config_file)
     if not api_key or not chat_id:
         print(f"[-] Error on reading config-file ({config_file}) . Aborting!")
         print(f"[-] api-key: {api_key} - chat-id: {chat_id}")
