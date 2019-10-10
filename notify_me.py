@@ -20,7 +20,7 @@ def read_config(fname):
 
 
 def main():
-    script_path = os.path.dirname(os.path.abspath(__file__))
+    script_path = os.path.dirname(os.path.realpath(__file__))
     config_file = "notify_me.config"
     if len(sys.argv) < 2:
         print(f"[*] USAGE: {sys.argv[0]} <program> <arguments>")
