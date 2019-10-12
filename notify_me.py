@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
-
-
+import errno
 import os
 import time
 import sys
@@ -21,10 +20,14 @@ def read_config(fname):
 
 def get_cmdline(pid):
     cmdline = ""
-    with open(f"/proc/{pid}/cmdline", "rb") as fd:
-        for line in fd:
-            # nullbyte encodes space in this file
-            cmdline += " ".join(line.decode().split("\x00"))
+    try:
+        with open(f"/proc/{pid}/cmdline", "rb") as fd:
+            for line in fd:
+                # nullbyte encodes space in this file
+                cmdline += " ".join(line.decode().split("\x00"))
+    except FileNotFoundError:
+        print(f"[-] Process({pid}) not running")
+        return None
     return cmdline
 
 
@@ -41,7 +44,10 @@ def wait_for_process_exit(pid):
 
             # if SIGNAL 0 works the process is still alive
             os.kill(pid, 0)
-        except (OSError, FileNotFoundError):
+        except (OSError, FileNotFoundError) as err:
+            if err.errno == errno.EPERM:
+                # there exists a process but we have no permissions to it
+                continue
             has_finished = True
         # wait to prevent being to noisy
         time.sleep(3)
@@ -59,7 +65,6 @@ def main():
         print_help()
         exit(0)
 
-    pid = None
     command_mode = True
     if sys.argv[1] == "-p":
         if len(sys.argv) != 3:
@@ -85,7 +90,10 @@ def main():
         after = time.time()
     else:
         cmd = get_cmdline(pid)
-        print(f"[+] Attaching to process({pid}): {cmd}")
+        if not cmd:
+            print("[-] Aborting!")
+            exit(0)
+        print(f"[+] Waiting for process({pid}): {cmd}")
         before = os.path.getctime(f"/proc/{pid}")
         wait_for_process_exit(pid)
         after = time.time()
