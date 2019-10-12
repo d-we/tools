@@ -14,12 +14,14 @@ Patches a given binary to remove the call for the libc function `alarm`. The pat
 #### Dependencies 
 - [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
 #### Functionality  
-Runs a command/binary and sends Telegram notification upon finish.
+Runs or attaches to a command/binary and sends Telegram notification upon finish.
 
 #### Example Usage
 ```bash
 ./notify_me.py find / -iname "flag.txt"
+./notify_me.py -p 31337
 ```
+
 Sent telegram notification:
 ```
 Execution finished.
