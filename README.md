@@ -1,5 +1,6 @@
 # tools
-Some useful tools
+Various small tools I developed because I wanted them in my daily life. If not stated otherwise the tools are written for Linux.
+
 ## Remove-Alarm
 #### Dependencies 
 - [pwntools](https://github.com/Gallopsled/pwntools) (python2)
@@ -9,6 +10,7 @@ Patches a given binary to remove the call for the libc function `alarm`. The pat
 ```bash
 ./remove_alarm.py evil-binary
 ```
+
 
 ## Presentation-Slide-Timer
 #### Dependencies 
@@ -34,8 +36,6 @@ Press ENTER to start the presentation timer
 ```
 
 
-
-
 ## Notify-Me
 #### Dependencies 
 - [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
@@ -55,8 +55,6 @@ Command: find / -iname flag.txt
 Exit-Code: 256
 Time elapsed: 00:00:41.
 ```
-
-
 
 #### Example Config-file (save as 'notify_me.config')
 ```
