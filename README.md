@@ -19,6 +19,7 @@ Patches a given binary to remove the call for the libc function `alarm`. The pat
 When giving presentations I note down the end time of each slide during practise talks. This gives a good guidance for my timing during the actual talk.
 This tool can be started in the background when practising a presentation. It will capture pressed keys, e.g., *SPACE*, to check when you skip a slide in your presentation tool. For each slide it notes down the time. It also stores the time to a logfile. 
 
+The script also supports a pause functionality. Pressing Shift-P stops/resumes the timer.
 #### Example Usage
 ```bash
 ./presentation-slide-timer.py timestamps.log
