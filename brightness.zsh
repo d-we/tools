@@ -1,11 +1,18 @@
 #/bin/zsh
                                                                                                     
-MON="eDP-1"    # Discover monitor name with: xrandr | grep " connected"                             
+#MON="eDP-1"    # Discover monitor name with: xrandr | grep " connected"                             
+MON="eDP1"    # Discover monitor name with: xrandr | grep " connected"                             
 STEP=0.05      # Step Up/Down brightnes by
                                                                                                     
 # get current brightness                                                                            
 CurrBrightness="$(xrandr --verbose | awk '/Brightness/ {print $2;exit}')"
 
+# check for zero args
+if [[ $# -eq 0 ]]
+then
+  echo "Current Brightness: $CurrBrightness"
+  exit 0
+fi
 # if we are above 1.0 the minimal possible step is 0.1
 if [[ $CurrBrightness -gt 1.0 ]]
 then
