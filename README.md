@@ -64,3 +64,11 @@ chat-id: <chat-id>
 # api-key for the Telegram bot 
 api-key: <api-key>
 ```
+
+## Brightness
+#### Functionality
+Changes screen brightness. I wrote this because the Linux kernel does not support setting the brightness of O-LED screen out-of-the-box hence I bind shortcuts to this script.
+
+#### Example
+- Bind "monitor screen brightness increase"-key to `brightness +`
+- Bind "monitor screen brightness decrease"-key to `brightness -`
