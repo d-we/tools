@@ -27,12 +27,12 @@ Press ENTER to start the presentation timer
 
 # press enter and switch to, e.g., pdfpc to practise your talk now. When finished press CTRL-C
 
-[*] Slide 1 took 2 seconds and ended at 0:02.
-[*] Slide 2 took 5 seconds and ended at 0:08.
-[*] Slide 3 took 3 seconds and ended at 0:11.
+[*] Slide 1 took 32 seconds and ended at 0:32.
+[*] Slide 2 took 20 seconds and ended at 0:52.
+[*] Slide 3 took 50 seconds and ended at 1:42.
 ^C
-[+] Shortest slide: slide 1 with 0:02.
-[+] Longest slide: slide 2 with 0:05.
+[+] Shortest slide: slide 2 with 0:20.
+[+] Longest slide: slide 3 with 0:50.
 [+] Finished. Results were written to timestamps.log
 ```
 
