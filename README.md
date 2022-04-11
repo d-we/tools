@@ -49,6 +49,9 @@ Runs or attaches to a command/binary and sends Telegram notification upon finish
 ./notify_me.py -p 31337
 ```
 
+#### Credits
+Thanks to Jessica Schmidt for the initial idea and code.
+
 Sent telegram notification:
 ```
 Execution finished.
