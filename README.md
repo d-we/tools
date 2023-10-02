@@ -1,16 +1,6 @@
 # tools
 Various small tools I developed because I wanted them in my daily life. If not stated otherwise the tools are written for Linux.
 
-## DirSyncher
-#### Dependencies
-- [watchdog](https://pypi.org/project/pynput/) (python3)
-#### Functionality  
-Syncs changes to a local directory to a remote directory. The remote directory has to exist.
-#### Example Usage
-```bash
-./dirsyncher.py ./local-dir lab-machine:remote-dir
-```
-
 ## Remove-Alarm
 #### Dependencies 
 - [pwntools](https://github.com/Gallopsled/pwntools) (python2)
